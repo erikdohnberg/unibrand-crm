@@ -1,15 +1,13 @@
 UnibrandCrm::Application.routes.draw do
   
-  root :to => 'booking#index'
+	root :to => 'home#index'
 
-  namespace :admin do
-    resources :booking
-  end
+	namespace :admin do
+		resources :bookings
+	end
 
-  namespace :user do
-    resources :booking
-  end
+	resources :bookings
 
-  resource :session, :only => [:new, :create, :destroy]
+	resource :session, :only => [:new, :create, :destroy]
 
 end
