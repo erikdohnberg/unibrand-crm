@@ -7,7 +7,7 @@ UnibrandCrm::Application.routes.draw do
 	end
 
 	resources :bookings
-
+  resources :users
 	resource :session, :only => [:new, :create, :destroy]
 
 end

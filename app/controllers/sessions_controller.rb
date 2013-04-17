@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
 
 	# Post new session
 	def create
-		@user = login(params[:email], params[:password])
+		@user = login(params[:email], params[:password], params[:remember_me])
 		if @user
-			redirect_to :root, :notice => "Logged In"
+			redirect_back_or_to :root, :notice => "Logged In"
 		else
 			flash.now[:alert] = "Invalid email or password"
 			render :new

@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 	def new
     	@user = User.new
   	end
@@ -6,7 +6,7 @@ class UserController < ApplicationController
   	def create
     	@user = User.new(params[:user])
 	    if @user.save
-	    	redirect_to user_booking_index_path, :notice => "Signed up!"
+	    	redirect_to :root, :notice => "Signed up!"
 	    else
 	      render :new
 	    end

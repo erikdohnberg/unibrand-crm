@@ -1,27 +1,27 @@
-<h1>Book your move!</h1>
+<h2>Book your move!</h2>
 
 <%= form_for @booking do |f| %>
 
   <%= render 'shared/forms_errors', :f => f %>
-
+  <div class="field">
   <%= f.text_field :starts_at, placeholder: "Start Date", class: "input-block-level" %>
   <%= f.text_field :ends_at, placeholder: "End Date", class: "input-block-level" %>
-
-  <p>
+  </div>
+  <div class="field">
     <%= f.fields_for :origin do |address_fields| %>
       <%= address_fields.text_field :street_address, placeholder: "Current Street Address", class: "input-block-level" %>
       <%= address_fields.text_field :city, placeholder: "Current City", class: "input-block-level" %>
       <%= address_fields.text_field :postal_code, placeholder: "Postal Code", class: "input-block-level" %>
     <% end %>
-  </p>
+  </div>
 
-  <p>
+  <div class="field">
     <%= f.fields_for :destination do |address_fields| %>
       <%= address_fields.text_field :street_address, placeholder: "Destination Street Address", class: "input-block-level" %>
       <%= address_fields.text_field :city, placeholder: "Destination City", class: "input-block-level" %>
       <%= address_fields.text_field :postal_code, placeholder: "Postal Code", class: "input-block-level" %>
     <% end %>
-  </p>
+  </div>
   <div class="form-actions">
     <%= f.submit 'Book Now!', :class => 'btn' %>
   </div>
