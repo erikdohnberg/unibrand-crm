@@ -4,14 +4,10 @@
 
   <%= render 'shared/forms_errors', :f => f %>
   <div class="field">
-    <%= f.label :start_date %>
+    <%= f.label :move_date %>
     <br>
-  <%= f.text_field :starts_at, placeholder: "Start Date", class: "input-block-level" %>
+    <%= f.text_field :starts_at, placeholder: "When would you like to move?", :value => (@booking.starts_at.blank? ? '' : @booking.starts_at.strftime('%m/%d/%Y')), id: "datepicker" %>
   <br>
-  <%= f.label :end_date %>
-  <br>
-  <%= f.text_field :ends_at, placeholder: "End Date", class: "input-block-level" %>
-  </div>
   <div class="field">
     <%= f.fields_for :origin do |address_fields| %>
       <%= address_fields.label :current_address %>
