@@ -3,41 +3,36 @@
 <%= form_for @booking do |f| %>
 
   <%= render 'shared/forms_errors', :f => f %>
-  <div class="field">
+  <div class="field", id="movedate">
     <%= f.label :move_date %>
     <br>
-    <%= f.text_field :starts_at, placeholder: "When would you like to move?", :value => (@booking.starts_at.blank? ? '' : @booking.starts_at.strftime('%m/%d/%Y')), id: "datepicker" %>
-  <br>
+    <%= f.text_field :starts_at, placeholder: "When would you like to move?", :value => (@booking.starts_at.blank? ? '' : @booking.starts_at.strftime('%m/%d/%Y')), class: "input-block-level", id: "datepicker" %>
   <div class="field">
-    <%= f.fields_for :origin do |address_fields| %>
-      <%= address_fields.label :current_address %>
-      <br>
-      <%= address_fields.text_field :street_address, placeholder: "eg. 374 Stephen St.", class: "input-block-level" %>
-      <br>
-      <%= address_fields.label :current_city %>
-      <br>
-      <%= address_fields.text_field :city, placeholder: "London", class: "input-block-level" %>
-      <br>
-      <%= address_fields.label :postal_code %>
-      <br>
-      <%= address_fields.text_field :postal_code, placeholder: "N6K 3V8", class: "input-block-level" %>
-    <% end %>
+    <%= label_tag :current_address %>
+    <br>
+    <%= text_field_tag "origin[street_address]", nil, placeholder: "eg. 374 Stephen St.", class: "input-block-level" %>
+    <br>
+    <%= label_tag :current_city %>
+    <br>
+    <%= text_field_tag "origin[city]", nil, placeholder: "London", class: "input-block-level" %>
+    <br>
+    <%= label_tag :postal_code %>
+    <br>
+    <%= text_field_tag "origin[postal_code]", nil, placeholder: "N6K 3V8", class: "input-block-level" %>
   </div>
 
   <div class="field">
-    <%= f.fields_for :destination do |address_fields| %>
-      <%= address_fields.label :destination_address %>
-      <br>
-      <%= address_fields.text_field :street_address, placeholder: "eg. 30 Grand Trunk Cres.", class: "input-block-level" %>
-      <br>
-      <%= address_fields.label :destination_city %>
-      <br>
-      <%= address_fields.text_field :city, placeholder: "Toronto", class: "input-block-level" %>
-      <br>
-      <%= address_fields.label :postal_code %>
-      <br>
-      <%= address_fields.text_field :postal_code, placeholder: "M5V 9T7", class: "input-block-level" %>
-    <% end %>
+    <%= label_tag :destination_address %>
+    <br>
+    <%= text_field_tag "destination[street_address]", nil, placeholder: "eg. 30 Grand Trunk Cres.", class: "input-block-level" %>
+    <br>
+    <%= label_tag :destination_city %>
+    <br>
+    <%= text_field_tag "destination[city]", nil, placeholder: "Toronto", class: "input-block-level" %>
+    <br>
+    <%= label_tag :postal_code %>
+    <br>
+    <%= text_field_tag "destination[postal_code]", nil, placeholder: "M5V 9T7", class: "input-block-level" %>
   </div>
   <div class="form-actions">
     <%= f.submit 'Book Now!', :class => 'btn' %>

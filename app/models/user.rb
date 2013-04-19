@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
 		# do something before it gets added
 	end
 
+	def name
+		"#{first_name} #{last_name}"
+	end
+
 end

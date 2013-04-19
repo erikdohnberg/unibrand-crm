@@ -1,0 +1,19 @@
+<p>
+  Hi <%= @user.first_name %>,
+</p>
+
+<p>
+  Thank you for choosing to move with University Brand!
+  <br>
+  We will contact you regarding specific move times, our availability and which size of moving vans will be best for your move!  
+  <br>
+  If "<%= @user.email %>" is not the correct email address, please <%= link_to "visit your account settings page", edit_user_path %> and update your email address!
+</p>
+
+<hr/>
+
+<p>
+  Talk to you soon!
+  <br/>
+  The University Brand team.
+</p>
